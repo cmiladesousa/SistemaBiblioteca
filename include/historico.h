@@ -7,21 +7,25 @@ using namespace std;
 
 class historico{
     private:
-        string data_avaliacao;
-        float temperatura; 
-        float altura;
-        float peso;
-        bool amostra_coletada;
-        string exame_fisico;
+        int id_livro;
+        string titulo;
+        string autor;
+        string localizacao;
+        string data_devolucao;
+        string data_emprestimo;
+        string prazo;
+        bool em_aberto;
     public:
         historico();
-        historico(string data_avaliacao, float peso, float temp, float altura, bool amostra, string exame);
-        string getDataAvaliacao();
-        float getTemperatura();
-        float getAltura();
-        float getPeso();
-        bool getAmostra();
-        string getExame();
+        historico(int id_livro, string titulo, string autor, string localizacao, string data_devolucao, string data_emprestimo, string prazo, bool em_aberto);
+        int getIdLivro();
+        string getTitulo();
+        string getAutor();
+        string getLocalizacao();
+        string getDataDevolucao();
+        string getDataEmprestimo();
+        string getPrazo();
+        bool getEmAberto();
         void imprimirHistorico();
 };
 
