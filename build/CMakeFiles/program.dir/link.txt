@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/program.dir/src/historico.cpp.o CMakeFiles/program.dir/src/usuario.cpp.o CMakeFiles/program.dir/src/node.cpp.o CMakeFiles/program.dir/src/arvore.cpp.o CMakeFiles/program.dir/src/main.cpp.o -o program 

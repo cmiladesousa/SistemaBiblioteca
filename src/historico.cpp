@@ -57,6 +57,10 @@ void historico::imprimirHistorico(){
     } else{
         cout << "Data de Devolução: " << getDataDevolucao() << endl;
     }
-    cout << "Processo: " << getEmAberto() << endl;
+    if(getEmAberto()){
+        cout << "Processo: Em aberto" << endl;
+    } else {
+        cout << "Processo: Encerrado"<< endl;
+    }
     cout << endl;
 }

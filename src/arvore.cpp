@@ -186,6 +186,7 @@ node* arvore::deletarNo(node *raiz, int id){
     return raiz;
 }
 
+/*
 void arvore::salvarArvore(node *raiz, string nomeArquivo){
     std::ofstream arquivo(nomeArquivo);
     if (arquivo.is_open()) {
@@ -208,3 +209,4 @@ void arvore::salvarEmOrdem(node *raiz, ofstream& arquivo) {
 
 void arvore::iniciaArvoreArquivo(node *raiz, string nomeArquivo){
 }
+*/

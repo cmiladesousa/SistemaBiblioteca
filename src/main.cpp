@@ -25,25 +25,27 @@ int main(){
         case 1:
             cout <<"Insira o CPF do usuário: " << endl;
             cin >> valor;
+            cin.ignore();
             novoNo = user.buscaNo(user.getRaiz(), valor);
             if(novoNo != NULL){
                 cout << "Erro! Esse CPF já existe!" << endl;
             } else {
                 string nome, cpf, endereco, email, telefone, data_nascimento;
                 char sexo;
-                cout << "Insira o nome do usuário" << endl;
+                cout << "Insira o nome do usuário:" << endl;
                 getline(cin, nome);
-                cout << "Insira o CPF" << endl;
+                cout << "Insira o CPF:" << endl;
                 getline(cin, cpf);
-                cout << "Insira o endereço" << endl;
+                cout << "Insira o endereço:" << endl;
                 getline(cin, endereco);
-                cout << "Insira o email" << endl;
+                cout << "Insira o email:" << endl;
                 getline(cin, email);
-                cout << "Insira o telefone no formato (xx)xxxxx-xxxx" << endl;
+                cout << "Insira o telefone no formato (xx)xxxxx-xxxx:" << endl;
                 getline(cin, telefone);
-                cout << "Insira o sexo: Homem(H)/ Mulher (M)/ Outro (O)" << endl;
+                cout << "Insira o sexo: Homem(H)/ Mulher (M)/ Outro (O):" << endl;
                 cin >> sexo;
-                cout << "Insira a data de nascimento" << endl;
+                cin.ignore();
+                cout << "Insira a data de nascimento:" << endl;
                 getline(cin, data_nascimento);
                 usuario a = usuario(valor, nome, cpf, endereco, email, telefone, sexo, data_nascimento);
                 node *no2 = new node();
@@ -73,6 +75,45 @@ int main(){
                 cout << "Usuário não encontrado" << endl;
             }
             cout<<endl;
+            break;
+        case 4:
+            cout <<"Insira o CPF do usuário: " << endl;
+            cin >> valor;
+            cin.ignore();
+            novoNo = user.buscaNo(user.getRaiz(), valor);
+            if(novoNo != NULL){
+                string titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, processo;
+                int id_livro;
+                bool em_aberto;
+                cout << "Insira o ID do livro:" << endl;
+                cin >> id_livro;
+                cin.ignore();
+                cout << "Insira o título:" << endl;
+                getline(cin, titulo);
+                cout << "Insira o autor:" << endl;
+                getline(cin, autor);
+                cout << "Insira a localização:" << endl;
+                getline(cin, localizacao);
+                cout << "Insira a data de empréstimo:" << endl;
+                getline(cin, data_emprestimo);
+                cout << "Insira o prazo de devolução:" << endl;
+                getline(cin, prazo);
+                cout << "Insira a data de devolução(Caso tenha):" <<endl;
+                getline(cin, data_devolucao);
+                cout << "O processo de empréstimo já foi concluido?" << endl;
+                getline(cin, processo);
+
+                if(processo == "S" || processo == "s" || processo == "SIM" || processo == "Sim")
+                    em_aberto = true;
+                else
+                    em_aberto = false;
+
+                historico h = historico(id_livro, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, em_aberto);
+                novoNo->ajustaHistorico(h);
+
+            } else{
+                cout << "Usuário não encontrado" << endl;
+            }
             break;
         default:
             break;
