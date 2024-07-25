@@ -1,11 +1,67 @@
 #include <iostream>
+#include <fstream>
 #include "arvore.h"
 
-int main(){
+int main(int argc, char* argv[]){
     arvore user;
     node *novoNo = new node();
     int option, valor;
 
+    if(argc > 1){
+        std::ifstream arquivo(argv[1]);
+        if(arquivo.is_open()){
+            int linhasLidas = 0;
+            int qtdHistoricos, qtdUsuarios, id, id_livro;
+            string linha, nome, cpf, endereco, email, telefone, data_nascimento, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo;
+            char sexo;
+            bool em_aberto;
+            if(getline(arquivo, linha)){
+                qtdUsuarios = stoi(linha);
+                for (int i = 0; i < qtdUsuarios; i++){
+                    getline(arquivo, linha);
+                    id = stoi(linha);
+                    getline(arquivo, nome);
+                    getline(arquivo, cpf);
+                    getline(arquivo, endereco);
+                    getline(arquivo, email);
+                    getline(arquivo, telefone);
+                    getline(arquivo, linha);
+                    sexo = linha[0];
+                    getline(arquivo, data_nascimento);
+                    getline(arquivo, linha);
+                    qtdHistoricos = stoi(linha);
+                    novoNo = user.buscaNo(user.getRaiz(), id);
+                    if(novoNo == NULL){
+                        usuario a = usuario(id, nome, cpf, endereco, email, telefone, sexo, data_nascimento);
+                        node *no2 = new node();
+                        no2->setUsuario(a);
+                        user.setRaiz(user.inserirNo(user.getRaiz(), no2));
+                        for(int j = 0; j < qtdHistoricos; j++){
+                            getline(arquivo, linha);
+                            id_livro = stoi(linha);
+                            getline(arquivo, titulo);
+                            getline(arquivo, autor);
+                            getline(arquivo, localizacao);
+                            getline(arquivo, data_devolucao);
+                            getline(arquivo, data_emprestimo);
+                            getline(arquivo, prazo);
+                            getline(arquivo, linha);
+                            em_aberto = stoi(linha);
+                            historico h = historico(id_livro, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, em_aberto);
+                            novoNo->ajustaHistorico(h);
+                        }
+                    } else{
+                        for(int j = 0; j < qtdHistoricos * 8; j++){
+                            getline(arquivo, linha);
+                        }
+                    }
+                }
+            }
+        }
+        arquivo.close();
+    } else{
+        std::cout << "Erro ao abrir o arquivo inicial de animais" << endl;
+    } 
     cout << "Boas vindas ao sistema da bilioteca de Alexandria" << endl;
     do{
         cout << "O que você deseja fazer?" << endl;
