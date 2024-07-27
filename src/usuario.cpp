@@ -54,7 +54,9 @@ historico usuario::getHistoricoById(int id){
 }
 
 void usuario::adicionarHistorico(historico h){
+    cout << "teste" << endl;
     hist.push_back(h);
+    cout << "teste" << endl;
 }
 
 void usuario::printDadosUsuario(){

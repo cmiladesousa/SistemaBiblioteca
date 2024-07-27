@@ -16,6 +16,7 @@ node* arvore::getRaiz(){
 }
 
 void arvore::setRaiz(node *novoNo){
+    cout << "teste" << endl;
     this->raiz = novoNo;
 }
 int arvore::getAltura(node *raiz){

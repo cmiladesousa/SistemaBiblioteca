@@ -32,9 +32,11 @@ void node::setDir(node *novoNo){
 }
 
 void node::setUsuario(usuario novoUso){
+    cout << "teste" << endl;
     this->uso = novoUso;
 }
 
 void node::ajustaHistorico(historico h){
+    cout << "teste" << endl;
     this->uso.adicionarHistorico(h);
 }

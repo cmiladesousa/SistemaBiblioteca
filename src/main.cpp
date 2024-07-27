@@ -48,7 +48,7 @@ int main(int argc, char* argv[]){
                             getline(arquivo, linha);
                             em_aberto = stoi(linha);
                             historico h = historico(id_livro, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, em_aberto);
-                            novoNo->ajustaHistorico(h);
+                            no2->ajustaHistorico(h);
                         }
                     } else{
                         for(int j = 0; j < qtdHistoricos * 8; j++){
