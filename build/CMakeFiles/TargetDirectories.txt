@@ -1,3 +1,0 @@
-/home/camila/Documents/Trabalhos/SistemaBiblioteca/build/CMakeFiles/program.dir
-/home/camila/Documents/Trabalhos/SistemaBiblioteca/build/CMakeFiles/edit_cache.dir
-/home/camila/Documents/Trabalhos/SistemaBiblioteca/build/CMakeFiles/rebuild_cache.dir
