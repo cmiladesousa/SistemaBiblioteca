@@ -16,9 +16,9 @@ class arvore{
         node* balancoDireita(node *p);
         node* balancoEsquerda(node *p);
         node* inserirNo(node *raiz, node *novoNo);
-        node* buscaNo(node *raiz, int id);
+        node* buscaNo(node *raiz, float id);
         node* valorminimo(node* no);
-        node* deletarNo(node* raiz, int id);
+        node* deletarNo(node* raiz, float id);
         void salvarArvore(node *raiz, string arquivo);
         void salvarEmOrdem(node *raiz, ofstream& arquivo);
         void iniciaArvoreArquivo(node *raiz, string nomeArquivo);

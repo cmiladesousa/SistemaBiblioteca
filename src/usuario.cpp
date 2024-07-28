@@ -2,10 +2,9 @@
 
 usuario::usuario(){};
 
-usuario::usuario(int id, string nome, string cpf, string endereco, string email, string telefone, char sexo, string data_nas){
+usuario::usuario(float id, string nome, string endereco, string email, string telefone, char sexo, string data_nas){
     this->id = id;
     this->nome = nome;
-    this->cpf = cpf;
     this->endereco = endereco;
     this->email = email;
     this->telefone = telefone;
@@ -13,16 +12,12 @@ usuario::usuario(int id, string nome, string cpf, string endereco, string email,
     this->data_nascimento = data_nas;
 }
 
-int usuario::getId() const{
+float usuario::getId() const{
     return this->id;
 }
 
 string usuario::getNome() const{
     return this->nome;
-}
-
-string usuario::getCPF() const{
-    return this->cpf;
 }
 
 string usuario::getEndereco() const{
@@ -54,19 +49,16 @@ historico usuario::getHistoricoById(int id){
 }
 
 void usuario::adicionarHistorico(historico h){
-    cout << "teste" << endl;
     hist.push_back(h);
-    cout << "teste" << endl;
 }
 
 void usuario::printDadosUsuario(){
     cout << "Dados do Usuário:" << endl;
-    cout << "Id: " << getId() << endl;
     cout << "Nome:" << getNome() << endl;
     cout << "E-mail: " << getEmail() << endl;
     cout << "Telefone: " << getTelefone() << endl;
     cout << "Endereço: " << getEndereco() << endl;
-    cout << "CPF: " << getCPF() << endl;
+    cout << "CPF: " << getId() << endl;
     cout << "Sexo: " << getSexo() << endl;
     if(getData_nasc().empty()){
         cout << "Data de Nascimento: Desconhecida" << endl;

@@ -63,8 +63,8 @@ node* arvore::inserirNo(node *raiz, node *novoNo){
         return raiz;
     }
 
-    int idRaiz = raiz->getUsuario().getId();
-    int idNovo = novoNo->getUsuario().getId();
+    float idRaiz = raiz->getUsuario().getId();
+    float idNovo = novoNo->getUsuario().getId();
     if(idNovo < idRaiz){
         raiz->setEsc(inserirNo(raiz->getEsc(), novoNo));
     } else if(idNovo > idRaiz){
@@ -75,8 +75,8 @@ node* arvore::inserirNo(node *raiz, node *novoNo){
     }
 
     int balanco = getBalancoNo(raiz);
-    int idDirRaiz;
-    int idEscRaiz;
+    float idDirRaiz;
+    float idEscRaiz;
     if(raiz->getDir() != NULL){
        idDirRaiz = raiz->getDir()->getUsuario().getId();
     }
@@ -108,11 +108,11 @@ node* arvore::inserirNo(node *raiz, node *novoNo){
     return raiz;
 }
 
-node* arvore::buscaNo(node *raiz, int id){
+node* arvore::buscaNo(node *raiz, float id){
     if(raiz == NULL){
         return raiz;
     }
-    int idRaiz = raiz->getUsuario().getId();
+    float idRaiz = raiz->getUsuario().getId();
     if(idRaiz == id){
         return raiz;
     }
@@ -132,8 +132,8 @@ node* arvore::valorminimo(node *no){
      return noAtual;
 }
 
-node* arvore::deletarNo(node *raiz, int id){
-    int idRaiz = raiz->getUsuario().getId();
+node* arvore::deletarNo(node *raiz, float id){
+    float idRaiz = raiz->getUsuario().getId();
     if(raiz == NULL){
         return NULL;
     } 
