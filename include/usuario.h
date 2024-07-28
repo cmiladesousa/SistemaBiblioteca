@@ -9,9 +9,8 @@ using namespace std;
 
 class usuario{
     private:
-        int id;
+        float id;
         string nome;
-        string cpf;
         string endereco; 
         string email;
         string telefone; 
@@ -20,10 +19,9 @@ class usuario{
         std::vector<historico> hist;
         public:
         usuario();
-        usuario(int id, string nome, string cpf, string endereco, string email, string telefone, char sexo, string data_nas);
-        int getId() const;
+        usuario(float id, string nome, string endereco, string email, string telefone, char sexo, string data_nas);
+        float getId() const;
         string getNome() const;
-        string getCPF() const;
         string getEndereco() const;
         string getEmail() const;
         string getTelefone() const;

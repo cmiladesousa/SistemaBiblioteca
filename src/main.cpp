@@ -5,23 +5,24 @@
 int main(int argc, char* argv[]){
     arvore user;
     node *novoNo = new node();
-    int option, valor;
+    int option;
+    float valor;
 
     if(argc > 1){
         std::ifstream arquivo(argv[1]);
         if(arquivo.is_open()){
             int linhasLidas = 0;
-            int qtdHistoricos, qtdUsuarios, id, id_livro;
-            string linha, nome, cpf, endereco, email, telefone, data_nascimento, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo;
+            int qtdHistoricos, qtdUsuarios, id_livro;
+            float id;
+            string linha, nome, endereco, email, telefone, data_nascimento, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo;
             char sexo;
             bool em_aberto;
             if(getline(arquivo, linha)){
                 qtdUsuarios = stoi(linha);
                 for (int i = 0; i < qtdUsuarios; i++){
                     getline(arquivo, linha);
-                    id = stoi(linha);
+                    id = stof(linha);
                     getline(arquivo, nome);
-                    getline(arquivo, cpf);
                     getline(arquivo, endereco);
                     getline(arquivo, email);
                     getline(arquivo, telefone);
@@ -32,7 +33,7 @@ int main(int argc, char* argv[]){
                     qtdHistoricos = stoi(linha);
                     novoNo = user.buscaNo(user.getRaiz(), id);
                     if(novoNo == NULL){
-                        usuario a = usuario(id, nome, cpf, endereco, email, telefone, sexo, data_nascimento);
+                        usuario a = usuario(id, nome, endereco, email, telefone, sexo, data_nascimento);
                         node *no2 = new node();
                         no2->setUsuario(a);
                         user.setRaiz(user.inserirNo(user.getRaiz(), no2));
@@ -86,24 +87,22 @@ int main(int argc, char* argv[]){
             if(novoNo != NULL){
                 cout << "Erro! Esse CPF já existe!" << endl;
             } else {
-                string nome, cpf, endereco, email, telefone, data_nascimento;
+                string nome, endereco, email, telefone, data_nascimento;
                 char sexo;
                 cout << "Insira o nome do usuário:" << endl;
                 getline(cin, nome);
-                cout << "Insira o CPF:" << endl;
-                getline(cin, cpf);
                 cout << "Insira o endereço:" << endl;
                 getline(cin, endereco);
                 cout << "Insira o email:" << endl;
                 getline(cin, email);
-                cout << "Insira o telefone no formato (xx)xxxxx-xxxx:" << endl;
+                cout << "Insira o telefone" << endl;
                 getline(cin, telefone);
-                cout << "Insira o sexo: Homem(H)/ Mulher (M)/ Outro (O):" << endl;
+                cout << "Insira o sexo: Homem(M)/ Mulher (F)/ Outro (O):" << endl;
                 cin >> sexo;
                 cin.ignore();
                 cout << "Insira a data de nascimento:" << endl;
                 getline(cin, data_nascimento);
-                usuario a = usuario(valor, nome, cpf, endereco, email, telefone, sexo, data_nascimento);
+                usuario a = usuario(valor, nome, endereco, email, telefone, sexo, data_nascimento);
                 node *no2 = new node();
                 no2->setUsuario(a);
                 user.setRaiz(user.inserirNo(user.getRaiz(), no2));
