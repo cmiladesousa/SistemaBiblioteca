@@ -9,5 +9,6 @@ add_executable( program
                 src/usuario.cpp 
                 src/node.cpp
                 src/arvore.cpp
+                src/login.cpp
                 src/main.cpp
                 )
