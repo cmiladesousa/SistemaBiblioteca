@@ -7,7 +7,7 @@ int main(int argc, char* argv[]){
     arvore user;
     login entrar;
     node *novoNo = new node();
-    int option;
+    int option, valorl;
     float valor;
     string usu, senha;
 
@@ -82,6 +82,7 @@ int main(int argc, char* argv[]){
             cout << "2. Buscar usuário" << endl;
             cout << "3. Remover usuário" << endl;
             cout << "4. Adicionar novo empréstimo" << endl;
+            cout << "5. Registrar devolução" << endl;
             cout << "0. Sair do programa" << endl;
 
             cin >> option;
@@ -178,6 +179,26 @@ int main(int argc, char* argv[]){
                     historico h = historico(id_livro, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, em_aberto);
                     novoNo->ajustaHistorico(h);
 
+                } else{
+                    cout << "Usuário não encontrado" << endl;
+                }
+                break;
+            case 5:
+                cout <<"Insira o CPF do usuário: " << endl;
+                cin >> valor;
+                cout << "Insira o Id do livro:" << endl;
+                cin >> valorl;
+                cin.ignore();
+                
+                novoNo = user.buscaNo(user.getRaiz(), valor);
+                if(novoNo != NULL){
+                    string data_devolucao;
+                    cout <<"Digite a data de devolução:" << endl;
+                    getline(cin, data_devolucao);
+
+                    novoNo->atualizarDevolucao(data_devolucao);
+
+                    cout << "Livro devolvido com sucesso!" << endl;
                 } else{
                     cout << "Usuário não encontrado" << endl;
                 }

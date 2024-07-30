@@ -46,11 +46,11 @@ bool historico::getEmAberto(){
 }
 
 void historico::imprimirHistorico(){
-    cout << "-------------------------" << endl;
+    cout << "-------------------------------------------------" << endl;
     cout << "Titulo: " << getTitulo() << endl;
     cout << "Autor: " << getAutor() << endl;
     cout << "localizacao: " << getLocalizacao() << endl;
-    cout << "Data de Emprestimo: " << getDataDevolucao() << endl;
+    cout << "Data de Emprestimo: " << getDataEmprestimo() << endl;
     cout << "Prazo de devolução: " << getPrazo() << endl;
     if(getDataDevolucao().empty()){
         cout << "Data de Devolução: --/--/----" << endl;
@@ -63,4 +63,13 @@ void historico::imprimirHistorico(){
         cout << "Processo: Encerrado"<< endl;
     }
     cout << endl;
+}
+
+void historico::registrarDevolucao(string data_devolucao){
+    if(getEmAberto()){
+        this->data_devolucao = data_devolucao;
+        this->em_aberto = false;
+    } else{
+        cout << "O livro já foi devolvido" << endl;
+    }
 }

@@ -31,7 +31,7 @@ class usuario{
         historico getHistoricoById(int id);
         void printDadosUsuario();
         void adicionarHistorico(historico h);
-        void salvarUsuario(ofstream& arquivo);
+        void attHistorico(string data_devolucao);
 };
 
 #endif

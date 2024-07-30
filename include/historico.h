@@ -27,6 +27,7 @@ class historico{
         string getPrazo();
         bool getEmAberto();
         void imprimirHistorico();
+        void registrarDevolucao(string data_devolucao);
 };
 
 #endif

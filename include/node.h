@@ -18,6 +18,7 @@ class node{
         void setDir(node *novoNo);
         void setUsuario(usuario novoUso);
         void ajustaHistorico(historico h);
+        void atualizarDevolucao(string data_devolucao);
 };
 
 #endif
