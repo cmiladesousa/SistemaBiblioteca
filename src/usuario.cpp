@@ -53,7 +53,7 @@ void usuario::adicionarHistorico(historico h){
 }
 
 void usuario::printDadosUsuario(){
-    cout << "Dados do Usuário:" << endl;
+    cout << "----------------Dados do Usuário----------------" << endl;
     cout << "Nome:" << getNome() << endl;
     cout << "E-mail: " << getEmail() << endl;
     cout << "Telefone: " << getTelefone() << endl;
@@ -82,3 +82,6 @@ void usuario::printDadosUsuario(){
     }
 }
 
+void usuario::attHistorico(string data_devolucao){
+    hist.back().registrarDevolucao(data_devolucao);
+}

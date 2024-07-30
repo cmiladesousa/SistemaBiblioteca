@@ -38,3 +38,7 @@ void node::setUsuario(usuario novoUso){
 void node::ajustaHistorico(historico h){
     this->uso.adicionarHistorico(h);
 }
+
+void node::atualizarDevolucao(string data_devolucao){
+    this->uso.attHistorico(data_devolucao);
+}
