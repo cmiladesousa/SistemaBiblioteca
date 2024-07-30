@@ -2,11 +2,6 @@
 
 login::login(){}
 
-login::login(string usu, string senha){
-    this->usu = usu;
-    this->senha = senha;
-}
-
 string login::getUsu(){
     this->usu = "admin";
     return this->usu;
