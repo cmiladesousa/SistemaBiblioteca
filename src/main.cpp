@@ -80,8 +80,12 @@ int main(int argc, char* argv[]){
             cout << "1. Inserir novo usuário" << endl;
             cout << "2. Buscar usuário" << endl;
             cout << "3. Remover usuário" << endl;
-            cout << "4. Adicionar novo empréstimo" << endl;
-            cout << "5. Registrar devolução" << endl;
+            cout << "4. Adicionar Livro " <<endl;
+            cout << "5. Listar Livros " <<endl;
+            cout << "6. Listar por Seção" <<endl;
+            cout << "7. Verificar Disponibilidade" <<endl;
+            cout << "8. Adicionar novo empréstimo" << endl;
+            cout << "9. Registrar devolução" << endl;
             cout << "0. Sair do programa" << endl;
 
             cin >> option;
@@ -143,7 +147,7 @@ int main(int argc, char* argv[]){
                 }
                 cout<<endl;
                 break;
-            case 4:
+            case 8:
                 cout <<"Insira o CPF do usuário: " << endl;
                 cin >> valor;
                 cin.ignore();
@@ -182,7 +186,7 @@ int main(int argc, char* argv[]){
                     cout << "Usuário não encontrado" << endl;
                 }
                 break;
-            case 5:
+            case 9:
                 cout <<"Insira o CPF do usuário: " << endl;
                 cin >> valor;
                 cout << "Insira o Id do livro:" << endl;
