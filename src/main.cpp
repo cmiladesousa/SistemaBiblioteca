@@ -14,7 +14,6 @@ int main(int argc, char* argv[]){
     if(argc > 1){
         std::ifstream arquivo(argv[1]);
         if(arquivo.is_open()){
-            int linhasLidas = 0;
             int qtdHistoricos, qtdUsuarios, id_livro;
             float id;
             string linha, nome, endereco, email, telefone, data_nascimento, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo;
@@ -197,8 +196,6 @@ int main(int argc, char* argv[]){
                     getline(cin, data_devolucao);
 
                     novoNo->atualizarDevolucao(data_devolucao);
-
-                    cout << "Livro devolvido com sucesso!" << endl;
                 } else{
                     cout << "Usuário não encontrado" << endl;
                 }

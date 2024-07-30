@@ -69,6 +69,7 @@ void historico::registrarDevolucao(string data_devolucao){
     if(getEmAberto()){
         this->data_devolucao = data_devolucao;
         this->em_aberto = false;
+        cout << "Livro devolvido com sucesso!" << endl;
     } else{
         cout << "O livro já foi devolvido" << endl;
     }
