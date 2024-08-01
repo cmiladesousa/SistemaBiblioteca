@@ -2,10 +2,15 @@
 #include <fstream>
 #include "arvore.h"
 #include "login.h"
+#include "organizacaoBiblioteca.h"
+#include "livro.h"
+#include "cadastro.h"
 
 int main(int argc, char* argv[]){
     arvore user;
     login entrar;
+    Biblioteca biblioteca;
+    Livro livro;
     node *novoNo = new node();
     int option, valorl;
     float valor;
@@ -83,9 +88,8 @@ int main(int argc, char* argv[]){
             cout << "4. Adicionar Livro " <<endl;
             cout << "5. Listar Livros " <<endl;
             cout << "6. Listar por Seção" <<endl;
-            cout << "7. Verificar Disponibilidade" <<endl;
-            cout << "8. Adicionar novo empréstimo" << endl;
-            cout << "9. Registrar devolução" << endl;
+            cout << "7. Adicionar novo empréstimo" << endl;
+            cout << "8. Registrar devolução" << endl;
             cout << "0. Sair do programa" << endl;
 
             cin >> option;
@@ -147,46 +151,46 @@ int main(int argc, char* argv[]){
                 }
                 cout<<endl;
                 break;
-            case 8:
+            case 4:
+                cadastro(biblioteca);
+                cout<<"Livro cadastrado com sucesso!" << endl;
+                break;
+            case 5:
+                biblioteca.listar();
+                break;
+            case 6:
+                biblioteca.listarporSecao();
+                break;
+            case 7:
                 cout <<"Insira o CPF do usuário: " << endl;
                 cin >> valor;
+                cout << "Insira o Id do livro:" << endl;
+                cin >> valorl;
                 cin.ignore();
+
                 novoNo = user.buscaNo(user.getRaiz(), valor);
-                if(novoNo != NULL){
-                    string titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, processo;
-                    int id_livro;
+                if(novoNo != NULL && biblioteca.buscarLivroPorID( valorl, livro)){
+                    string titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo;
                     bool em_aberto;
-                    cout << "Insira o ID do livro:" << endl;
-                    cin >> id_livro;
-                    cin.ignore();
-                    cout << "Insira o título:" << endl;
-                    getline(cin, titulo);
-                    cout << "Insira o autor:" << endl;
-                    getline(cin, autor);
-                    cout << "Insira a localização:" << endl;
-                    getline(cin, localizacao);
+                    titulo = livro.getTitulo();
+                    autor = livro.getAutor();
+                    cout << titulo << endl;
+                    localizacao = livro.getSecao();
                     cout << "Insira a data de empréstimo:" << endl;
                     getline(cin, data_emprestimo);
                     cout << "Insira o prazo de devolução:" << endl;
                     getline(cin, prazo);
-                    cout << "Insira a data de devolução(Caso tenha):" <<endl;
-                    getline(cin, data_devolucao);
-                    cout << "O processo de empréstimo já foi concluido?" << endl;
-                    getline(cin, processo);
+                    em_aberto = true;
 
-                    if(processo == "S" || processo == "s" || processo == "SIM" || processo == "Sim")
-                        em_aberto = true;
-                    else
-                        em_aberto = false;
-
-                    historico h = historico(id_livro, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, em_aberto);
+                    biblioteca.emprestimo(valorl);
+                    historico h = historico(valorl, titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo, em_aberto);
                     novoNo->ajustaHistorico(h);
 
                 } else{
                     cout << "Usuário não encontrado" << endl;
                 }
                 break;
-            case 9:
+            case 8:
                 cout <<"Insira o CPF do usuário: " << endl;
                 cin >> valor;
                 cout << "Insira o Id do livro:" << endl;
@@ -194,12 +198,13 @@ int main(int argc, char* argv[]){
                 cin.ignore();
                 
                 novoNo = user.buscaNo(user.getRaiz(), valor);
-                if(novoNo != NULL){
+                if(novoNo != NULL && biblioteca.buscarLivroPorID(valorl, livro)){
                     string data_devolucao;
                     cout <<"Digite a data de devolução:" << endl;
                     getline(cin, data_devolucao);
 
                     novoNo->atualizarDevolucao(data_devolucao);
+                    biblioteca.devolucao(valorl);
                 } else{
                     cout << "Usuário não encontrado" << endl;
                 }

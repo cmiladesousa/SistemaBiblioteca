@@ -19,21 +19,42 @@ class Livro{
         string secao;
 
         public:
-        
+        Livro(){};
+
         Livro(int id, const string& titulo, const string& autor, const string& categoria, const string& editora, 
         int dataPublicacao, const string& isbn, int qtndDisponivel, const string& secao)
         : id(id), titulo(titulo), autor(autor), categoria(categoria), editora(editora), 
         dataPublicacao(dataPublicacao), isbn(isbn), qtndDisponivel(qtndDisponivel), secao(secao){}
 
         int getId() const{return id;}
-        string getTitulo() const{return titulo;}
-        string getAutor() const{return autor;}
+        string getTitulo() const{return this->titulo;}
+        string getAutor() const{return this->autor;}
         string getCategoria() const{return categoria;}
         string getEditora() const{return editora;}
         int getPublicacao() const{return dataPublicacao;}
         string getISBN() const{return isbn;}
-        int getDisponivel() const{return qtndDisponivel;}
-        string getSecao() const{return secao;}
+        int getDisponivel() const{return this->qtndDisponivel;}
+        string getSecao() const{return this->secao;}
+
+        void setId(int id) {
+            this->id = id;
+        }
+
+        void setTitulo(const string& titulo) {
+            this->titulo = titulo;
+        }
+
+        void setAutor(const string& autor) {
+            this->autor = autor;
+        }
+
+        void setDisponivel(int qtndDisponivel) {
+            this->qtndDisponivel = qtndDisponivel;
+        }
+
+        void setSecao(const string& secao) {
+            this->secao = secao;
+        }
 
         void salvarArquivo(ofstream& Inventario) const {
         Inventario << "ID: " << id << endl;
@@ -58,6 +79,7 @@ class Livro{
             cout<< "Disponivel no acervo: " << qtndDisponivel << endl;
             cout<< "Seção: " << secao << endl;
         }
+    
 };
 
 
