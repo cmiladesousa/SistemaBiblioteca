@@ -90,6 +90,7 @@ int main(int argc, char* argv[]){
             cout << "6. Listar por Seção" <<endl;
             cout << "7. Adicionar novo empréstimo" << endl;
             cout << "8. Registrar devolução" << endl;
+            cout << "9. Salvar usuários em arquivo" <<endl;
             cout << "0. Sair do programa" << endl;
 
             cin >> option;
@@ -207,6 +208,9 @@ int main(int argc, char* argv[]){
                 } else{
                     cout << "Usuário não encontrado" << endl;
                 }
+                break;
+            case 9:
+                user.salvarArvore(user.getRaiz(), "../DadosUser.txt");
                 break;
             default:
                 break;

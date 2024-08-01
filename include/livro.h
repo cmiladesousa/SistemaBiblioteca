@@ -27,8 +27,8 @@ class Livro{
         dataPublicacao(dataPublicacao), isbn(isbn), qtndDisponivel(qtndDisponivel), secao(secao){}
 
         int getId() const{return id;}
-        string getTitulo() const{return this->titulo; cout}
-        string getAutor() const{return this->autor; cout}
+        string getTitulo() const{return this->titulo;}
+        string getAutor() const{return this->autor;}
         string getCategoria() const{return categoria;}
         string getEditora() const{return editora;}
         int getPublicacao() const{return dataPublicacao;}

@@ -85,3 +85,39 @@ void usuario::printDadosUsuario(){
 void usuario::attHistorico(string data_devolucao){
     hist.back().registrarDevolucao(data_devolucao);
 }
+
+void usuario::salvarUsuario(ofstream& arquivo){
+    arquivo << "----------------Dados do Usuário----------------" << endl;
+    arquivo << "Nome:" << nome << endl;
+    arquivo << "E-mail:" << email << endl;
+    arquivo << "Telefone:" << telefone << endl;
+    arquivo << "Endereço:" << endereco << endl;
+    arquivo << "CPF:" << id << endl;
+    arquivo << "Sexo:" << sexo<< endl;
+    arquivo << "Data Nascimento: " << data_nascimento << endl;
+    arquivo << "Empréstimos Registrados: " << hist.size() << endl;
+     if (hist.size() > 0){
+        for (int i = 0; i < hist.size(); i++){
+            arquivo << "---------------------------" << endl;
+            arquivo << "Empréstimo " << i + 1 << endl;
+            arquivo << "Titulo: " << hist[i].getTitulo() << endl;
+            arquivo << "Autor: " << hist[i].getAutor() << endl;
+            arquivo << "localizacao: " << hist[i].getLocalizacao() << endl;
+            arquivo << "Data de Emprestimo: " << hist[i].getDataEmprestimo() << endl;
+            arquivo << "Prazo de devolução: " << hist[i].getPrazo() << endl;
+            if(hist[i].getDataDevolucao().empty()){
+                arquivo << "Data de Devolução: --/--/----" << endl;
+            } else{
+                arquivo << "Data de Devolução: " << hist[i].getDataDevolucao() << endl;
+            }
+            if(hist[i].getEmAberto()){
+                arquivo << "Processo: Em aberto" << endl;
+            } else {
+                arquivo << "Processo: Encerrado"<< endl;
+            }
+        }
+        arquivo << "---------------------------" << endl;
+    } else if (hist.size() == 0){
+        arquivo << "---------------------------" << endl;
+    }
+}
