@@ -1,0 +1,11 @@
+Id: 1
+Título: Harry Potter
+Autor: jk rowling
+Seção: lalalala
+Quantidade: 10
+
+Id: 2
+Título: a menina que roubava livros
+Autor: felipe
+Seção: lalalala
+Quantidade: 5

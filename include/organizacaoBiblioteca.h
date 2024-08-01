@@ -71,5 +71,34 @@ public:
 
 
     }
+
+    void emprestimo(int id){
+        int i = id - 1;
+        int novaqtd = livros.at(i).getDisponivel() - 1;
+        livros.at(i).setDisponivel(novaqtd);
+    }
+
+    void devolucao(int id){
+        int i = id - 1;
+        int novaqtd = livros.at(i).getDisponivel() + 1;
+        livros.at(i).setDisponivel(novaqtd);
+    }
+
+   bool buscarLivroPorID( int idProcurado, Livro livro) {
+        int tam = livros.size();
+        int i = idProcurado - 1;
+        if(tam > i){
+            string titulo = livros.at(i).getTitulo();
+            string autor = livros.at(i).getAutor();
+            string secao = livros.at(i).getSecao();
+            livro.setTitulo(titulo);
+            livro.setAutor(autor);
+            livro.setSecao(secao);
+            return true;
+        }else{
+            return false;
+        }
+    }
 };
 #endif
+
