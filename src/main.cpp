@@ -172,10 +172,9 @@ int main(int argc, char* argv[]){
                 if(novoNo != NULL && biblioteca.buscarLivroPorID( valorl, livro)){
                     string titulo, autor, localizacao, data_devolucao, data_emprestimo, prazo;
                     bool em_aberto;
-                    titulo = livro.getTitulo();
-                    autor = livro.getAutor();
-                    cout << titulo << endl;
-                    localizacao = livro.getSecao();
+                    titulo = biblioteca.infoT(valorl);
+                    autor = biblioteca.infoA(valorl);
+                    localizacao = biblioteca.infoS(valorl);
                     cout << "Insira a data de empréstimo:" << endl;
                     getline(cin, data_emprestimo);
                     cout << "Insira o prazo de devolução:" << endl;

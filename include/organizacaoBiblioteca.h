@@ -84,16 +84,30 @@ public:
         livros.at(i).setDisponivel(novaqtd);
     }
 
+    string infoT(int id){
+        int i = id - 1;
+        string titulo = livros.at(i).getTitulo();
+
+        return titulo;
+    }
+
+    string infoA(int id){
+        int i = id - 1;
+        string autor = livros.at(i).getAutor();
+
+        return autor;
+    }
+
+    string infoS(int id){
+        int i = id - 1;
+        string secao = livros.at(i).getSecao();
+
+        return secao;
+    }
    bool buscarLivroPorID( int idProcurado, Livro livro) {
         int tam = livros.size();
         int i = idProcurado - 1;
         if(tam > i){
-            string titulo = livros.at(i).getTitulo();
-            string autor = livros.at(i).getAutor();
-            string secao = livros.at(i).getSecao();
-            livro.setTitulo(titulo);
-            livro.setAutor(autor);
-            livro.setSecao(secao);
             return true;
         }else{
             return false;
