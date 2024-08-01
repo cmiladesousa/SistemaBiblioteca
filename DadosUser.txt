@@ -1,0 +1,47 @@
+----------------Dados do Usuário----------------
+Nome:Camila de Sousa
+E-mail:cmiladesousa@gmail.com
+Telefone:84987597756
+Endereço:Rua rosa íris, 425
+CPF:7.02787e+10
+Sexo:F
+Data Nascimento: 20/01/2003
+Empréstimos Registrados: 2
+---------------------------
+Empréstimo 1
+Titulo: As crônicas de gelo e fogo
+Autor: george r r martin
+localizacao: 3A17
+Data de Emprestimo: 05/07/2024
+Prazo de devolução: 20/07/2024
+Data de Devolução: --/--/----
+Processo: Em aberto
+---------------------------
+Empréstimo 2
+Titulo: Harry Potter
+Autor: JK rowling
+localizacao: aaaa
+Data de Emprestimo: 24/08/2024
+Prazo de devolução: 18/09/2024
+Data de Devolução: --/--/----
+Processo: Em aberto
+---------------------------
+----------------Dados do Usuário----------------
+Nome:Pedro
+E-mail:pedro@gmail.com
+Telefone:(84)98877-5544
+Endereço:Rua Campo maior
+CPF:7.77778e+10
+Sexo:M
+Data Nascimento: 24/11/2002
+Empréstimos Registrados: 1
+---------------------------
+Empréstimo 1
+Titulo: Harry Potter
+Autor: JK rowling
+localizacao: aaaa
+Data de Emprestimo: 20/07/2024
+Prazo de devolução: 15/08/2024
+Data de Devolução: --/--/----
+Processo: Em aberto
+---------------------------

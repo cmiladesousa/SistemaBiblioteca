@@ -185,3 +185,23 @@ node* arvore::deletarNo(node *raiz, float id){
 
     return raiz;
 }
+
+void arvore::salvarArvore(node *raiz, string nomeArquivo){
+    std::ofstream arquivo(nomeArquivo);
+    if (arquivo.is_open()) {
+        salvarEmOrdem(raiz, arquivo);
+        arquivo.close();
+        std::cout << "Os usuários foram salvos em arquivo com sucesso" << endl;
+    } else {
+        std::cout << "Erro ao abrir o arquivo" << endl;
+    }
+
+}
+
+void arvore::salvarEmOrdem(node *raiz, ofstream& arquivo) {
+    if (raiz != nullptr) {
+        salvarEmOrdem(raiz->getEsc(), arquivo);
+        raiz->getUsuario().salvarUsuario(arquivo);
+        salvarEmOrdem(raiz->getDir(), arquivo);
+    }
+}
